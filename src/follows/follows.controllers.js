@@ -32,11 +32,12 @@ const findMyFollowings = async (userId) => {
         },
         include: {
             model: Users,
-            attributes: ['id', 'firstName', 'lastName']
+            attributes: ['id', 'firstName', 'lastName'],
+            as: "following"
         }
     })
     
-     return data.map(item => item.user)
+     return data.map(item => item.following)
 }
 
 
