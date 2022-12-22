@@ -48,9 +48,9 @@ const changePassword = async (tokenId, newPassword) => {
         })
         return data
     } else {
-        return false
-    }
-}
+        return error
+    } 
+} 
 
 //? https://ejemplo.com/api/v1/auth/recovery-password/s6df51s3ad1f3sad5f43sd54f3sd54f3sad2f13sad4f
 

@@ -4,7 +4,7 @@ const authControllers = require('./auth.controllers')
 const jwtSecret = require('../../config').api.jwtSecret
 const mailer = require('../utils/mailer')
 const config = require('../../config')
-       
+
 const postLogin = (req, res) => {
     const {email, password} = req.body
 
@@ -41,7 +41,6 @@ const postRecoveryToken = (req, res) => {
 
     const { email } = req.body     
     if(email){
-        console.log('asdjnaskdfjbnsdkfj')
         authControllers.createRecoveryToken(email)
         .then((data) => {
             if(data){
@@ -52,7 +51,9 @@ const postRecoveryToken = (req, res) => {
                     html: `<a href='${config.api.host}/api/v1/auth/recovery-password/${data.id}'>${config.api.host}/api/v1/auth/recovery-password/${data.id}</a>`
                 })
             }
-            res.status(200).json({message: 'Email sent!, Check your inbox'})
+            
+            res.status(200).json({message: 'Email sended!, Check your inbox'})
+
         })
         .catch((err) => {
             res.status(400).json({message: err.message})
@@ -78,12 +79,6 @@ const patchPassword = (req, res) => {
             res.status(400).json({message: err.message})
         })
 }
-
-
-
-
-
-
 
 module.exports = {
     postLogin,
