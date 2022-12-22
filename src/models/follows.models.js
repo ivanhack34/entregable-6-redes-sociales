@@ -27,7 +27,7 @@ const Follows = db.define('follows', {
             key: 'id',
             model: Users
         },
-    }
+    },  
 })
 
 module.exports = Follows

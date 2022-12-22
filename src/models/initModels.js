@@ -28,6 +28,11 @@ const initModels = () => {
         as: "following",
         foreignKey: "UserId2"
     })   
+
+    Follows.belongsTo(Users, {
+        as: "followers",
+        foreignKey: "UserId"
+    })
 }
 
 module.exports = initModels
